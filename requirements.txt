@@ -1,0 +1,25 @@
+# Instalar en el MISMO entorno donde se ejecutan los notebooks y el tablero:
+#   pip install -r requirements.txt
+# Los modelos se guardan con joblib y solo se cargan bien con la misma versión de scikit-learn
+# con que se entrenaron (ficha_tablero.json la registra y el tablero avisa si no coincide).
+# Versiones probadas juntas con Python 3.13 (deberían funcionar igual en 3.12).
+
+# Núcleo
+numpy==2.5.3
+pandas==2.2.3
+scipy>=1.13
+scikit-learn==1.5.2
+imbalanced-learn==0.13.0     # necesario: los modelos guardados son pipelines de imbalanced-learn
+xgboost==2.1.4
+joblib==1.3.2
+
+# Explicabilidad y figuras
+shap>=0.46.0                 # 0.46 es la primera versión compatible con NumPy 2
+matplotlib>=3.9.0            # versiones anteriores a 3.8.4 no funcionan con NumPy 2
+
+# Tablero
+streamlit>=1.36.0            # versiones anteriores exigen NumPy < 2
+
+# Solo para ejecutar los notebooks
+nbformat
+ipykernel
